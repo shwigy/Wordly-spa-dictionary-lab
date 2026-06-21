@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lecturn — Word Lookup</title>
+
+  <!-- Google Fonts: Fraunces (display), Source Serif 4 (body), IBM Plex Mono (utility/phonetic) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <div id="page">
+
+    <header id="masthead">
+      <span id="logo">Lecturn</span>
+      <span id="logo-tagline">a clean dictionary</span>
+    </header>
+
+    <main id="main-content">
+
+      <!-- Search form: role="search" tells assistive tech this is a search landmark -->
+      <form id="search-form" role="search" autocomplete="off">
+        <label for="word-input" class="visually-hidden">Search for a word</label>
+        <input
+          type="text"
+          id="word-input"
+          name="word-input"
+          placeholder="look up a word…"
+          aria-label="Search for a word"
+        />
+        <button type="submit" id="search-button" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <circle cx="7.5" cy="7.5" r="6" stroke="currentColor" stroke-width="1.6"/>
+            <line x1="12.2" y1="12.2" x2="17" y2="17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Inline validation message for empty searches -->
+      <p id="form-message" class="hidden" role="alert"></p>
+
+      <!-- aria-live="polite" announces dynamic content changes to screen readers -->
+      <section id="results" aria-live="polite">
+        <!-- Empty state shown before any search -->
+        <div id="empty-state">
+          <p>Every word has a story.<br>Start typing to find one.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer id="page-footer">
+      <p>Definitions courtesy of the <a href="https://dictionaryapi.dev/" target="_blank" rel="noopener noreferrer">Free Dictionary API</a></p>
+    </footer>
+
+  </div>
+</body>
+</html>
